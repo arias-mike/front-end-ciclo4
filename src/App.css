@@ -28,6 +28,43 @@
   color: #61dafb;
 }
 
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
+
+.h-custom {
+  height: calc(100% - 73px);
+}
+
+@media (max-width: 450px) {
+  .h-custom {
+  height: 100%;
+  }
+}
+
+@media (min-width: 700px) and (orientation: portrait) {
+  .footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
+}
+@media (min-width: 700px){
+  .footer{
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1030;
+  }
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

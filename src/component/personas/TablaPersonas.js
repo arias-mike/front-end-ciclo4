@@ -1,11 +1,11 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 
 function TablaPersonas(props) {
     const { personas, onDelete, onView } = props;
     return (
-        <div className="container">
-            <Table striped>
+        <Container>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
                         <th>Nombre</th>
@@ -30,15 +30,15 @@ function TablaPersonas(props) {
                                 <td>{personas.telefono}</td>
                                 <td>{personas.correo}</td>
                                 <td>
-                                    <button onClick={() => onDelete(personas._id)}>Eliminar</button>
-                                    <button onClick={() => onView(personas)}>Ver</button>
+                                    <Button variant="info" onClick={() => onView(personas)}>Ver</Button>{' '}
+                                    <Button variant="danger" onClick={() => onDelete(personas._id)}>Eliminar</Button>
                                 </td>
                             </tr>
                         )
                     })}
                 </tbody>
             </Table>
-        </div>
+        </Container>
     )
 }
 export default TablaPersonas

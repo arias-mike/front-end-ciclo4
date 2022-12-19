@@ -1,4 +1,4 @@
-let url = 'http://localhost:5000/';
+let url = 'https://backend-ciclo4.onrender.com/';
 url += 'personas/';
 
 export async function listarPersonas(){

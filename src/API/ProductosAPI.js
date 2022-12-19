@@ -1,43 +1,33 @@
 let url = 'https://backend-ciclo4.onrender.com/';
-url += 'usuarios/';
+url += 'productos/';
 
-export async function login(usuario){
-    const res = await fetch(url + 'login', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify(usuario)
-    });
-    const data = await res.json();
-    return data;
-}
-
-export async function listarUsuarios(){
+export async function listarProductos(){
     const res = await fetch(url);
     const data = await res.json();
-    return data.Usuarios;
+    return data.Productos;
 }
 
-export async function crearUsuario(usuario){
+export async function crearProducto(producto){
     const res = await fetch(url, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify(usuario)
+        body:JSON.stringify(producto)
     });
     const data = await res.json();
     return data;
 }
 
-export async function actualizarUsuario(usuario){
+export async function actualizarProducto(producto){
     const res = await fetch(url, {
         method: 'PATCH',
         headers: {'Content-Type': 'application/json'},
-        body:JSON.stringify(usuario)
+        body:JSON.stringify(producto)
     });
     const data = await res.json();
     return data;
 }
 
-export async function eliminarUsuario(id){
+export async function eliminarProducto(id){
     const res = await fetch(url + `${id}`, {
         method: 'DELETE',
         headers: {'Content-Type': 'application/json'},

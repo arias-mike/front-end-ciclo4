@@ -1,19 +1,16 @@
 import React from "react";
-import { Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 
 function TableUsuarios(props) {
     const { usuarios, onDelete, onView } = props;
     return (
-        <div className="container">
-            <Table striped>
+        <Container>
+            <Table striped bordered hover responsive>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Apellidos</th>
-                        <th>Tipo de Documento</th>
-                        <th>Numero de Documento</th>
-                        <th>Direccion</th>
-                        <th>Telefono</th>
+                        <th>Usuario</th>
+                        <th>Rol</th>
+                        <th>Estado</th>
                         <th>Correo</th>
                         <th>Acciones</th>
                     </tr>
@@ -22,23 +19,20 @@ function TableUsuarios(props) {
                     {usuarios?.map((usuarios) => {
                         return (
                             <tr key={usuarios._id}>
-                                <td>{usuarios.nombres}</td>
-                                <td>{usuarios.apellidos}</td>
-                                <td>{usuarios.tipoDoc}</td>
-                                <td>{usuarios.numDoc}</td>
-                                <td>{usuarios.direccion}</td>
-                                <td>{usuarios.telefono}</td>
-                                <td>{usuarios.correo}</td>
+                                <td>{usuarios.usuario}</td>
+                                <td>{usuarios.rol}</td>
+                                <td>{usuarios.estado}</td>
+                                <td>{usuarios.persona.correo}</td>
                                 <td>
-                                    <button onClick={() => onDelete(usuarios._id)}>Eliminar</button>
-                                    <button onClick={() => onView(usuarios)}>Ver</button>
+                                    <Button variant="info" onClick={() => onView(usuarios)}>Ver</Button>{' '}
+                                    <Button variant="danger" onClick={() => onDelete(usuarios._id)}>Eliminar</Button>
                                 </td>
                             </tr>
                         )
                     })}
                 </tbody>
             </Table>
-        </div>
+        </Container>
     )
 }
 
